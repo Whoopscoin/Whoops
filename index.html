@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>$WHOOPS - Accidental Alpha</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Orbitron", sans-serif;
+        background: linear-gradient(145deg, #0f0f0f, #1c1c1c);
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+
+      header,
+      section,
+      footer {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      header {
+        text-align: center;
+        background: transparent;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        animation: fadeIn 2s ease-in-out;
+        position: relative;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes glowPulse {
+        0% {
+          box-shadow: 0 0 10px #00ffcc;
+        }
+        50% {
+          box-shadow: 0 0 20px #00ffcc, 0 0 40px #3399ff;
+        }
+        100% {
+          box-shadow: 0 0 10px #00ffcc;
+        }
+      }
+
+      .marquee {
+        background: #3399ff;
+        color: #000;
+        padding: 0.5rem;
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        background: linear-gradient(90deg, #00ffcc, #3399ff, #ffcc00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: fadeIn 2s ease-in, glowPulse 3s infinite;
+        border: 2px solid #3399ff;
+        display: inline-block;
+        padding: 1rem 2rem;
+        border-radius: 16px;
+      }
+
+      .slogan {
+        font-size: 1.3rem;
+        color: #ffcc00;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        animation: fadeIn 2s ease-in 1s;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        color: #3399ff;
+        border-bottom: 2px solid #00ffcc;
+        padding-bottom: 0.5rem;
+        animation: fadeIn 1s ease-in;
+      }
+
+      p,
+      li {
+        margin: 1rem 0;
+        font-size: 1rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+      th,
+      td {
+        border: 1px solid #333;
+        padding: 0.8rem;
+        text-align: left;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+      .links a {
+        display: inline-block;
+        background: linear-gradient(45deg, #00ffcc, #009999);
+        color: #000;
+        text-decoration: none;
+        border-radius: 30px;
+        padding: 0.8rem 1.5rem;
+        font-weight: bold;
+        transition: transform 0.3s ease, background 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 15px rgba(0, 255, 204, 0.4);
+      }
+      .links a:hover {
+        transform: scale(1.08);
+        background: linear-gradient(45deg, #00ccaa, #007777);
+        box-shadow: 0 0 20px #00ffcc;
+      }
+      .links a:nth-child(5) {
+        background: linear-gradient(45deg, #ff4d4d, #ff9900);
+        color: #000;
+      }
+
+      .contract-address {
+        background-color: #1a1a1a;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        display: inline-block;
+        cursor: pointer;
+        user-select: none;
+        margin-top: 0.5rem;
+        transition: background 0.3s;
+        border: 1px solid #3399ff;
+        color: #00ffcc;
+        position: relative;
+      }
+      .contract-notification {
+        color: #ffcc00;
+        font-size: 0.8rem;
+        margin-top: 0.3rem;
+        display: none;
+      }
+
+      .chart-container {
+        width: min(80vw, 260px);
+        margin: 1.5rem auto 0;
+      }
+      .chart-container canvas {
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      footer {
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 3rem;
+        border-top: 1px solid #333;
+        padding-top: 1rem;
+        color: #888;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.4rem;
+        }
+        h2 {
+          font-size: 1.4rem;
+        }
+        .links a {
+          font-size: 0.9rem;
+          padding: 0.6rem 1.2rem;
+        }
+        .chart-container {
+          width: min(85vw, 220px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="marquee">
+      <marquee scrollamount="6"
+        >Whoops - Born by accident, held with conviction. Embrace the
+        fat-fingered revolution! Nd Shill you bags</marquee
+      >
+    </div>
+
+    <header>
+      <h1>WHOOPS - Accidental Alpha</h1>
+      <p class="slogan">Wrong click, right coin.</p>
+      <p>We didn’t mean to make this. But you meant to buy it.</p>
+    </header>
+
+    <section>
+      <h2>🧬 What is WHOOPS?</h2>
+      <p>
+        In the chaos of Base test deployments, one dev accidentally clicked
+        “Deploy” on the wrong contract.<br />
+        He closed his laptop. It stayed live. Then it
+        <strong>moonwalked</strong>.
+      </p>
+      <p>
+        No roadmap. No whitepaper. Just a divine fat-finger moment.
+        <strong>$WHOOPS</strong> wasn’t meant to happen—and that’s exactly why
+        it works.
+      </p>
+    </section>
+
+    <section>
+      <h2>About</h2>
+      <p>
+        $WHOOPS was deployed on a <strong>Friday night</strong>. The dev just
+        wanted to test gas. He left the contract running. The coin did what no
+        plan ever could: <strong>Moon by mistake.</strong>
+      </p>
+      <p>
+        Now it’s more than a token. It’s a token that would<strong
+          >change lives</strong
+        >, a <strong>coin</strong>, and a
+        <strong>call to everyone</strong> who’s ever clicked something they
+        shouldn’t have.
+      </p>
+    </section>
+
+    <section>
+      <h2>Token Info</h2>
+      <table>
+        <tr>
+          <th>Token Name</th>
+          <td>WHOOPS</td>
+        </tr>
+        <tr>
+          <th>Ticker($)</th>
+          <td>Whoops</td>
+        </tr>
+        <tr>
+          <th>Chain</th>
+          <td>Base</td>
+        </tr>
+        <tr>
+          <th>Total Supply</th>
+          <td>1,000,000,000</td>
+        </tr>
+        <tr>
+          <th>Tax</th>
+          <td>1% V3</td>
+        </tr>
+        <tr>
+          <th>Contract Address</th>
+          <td>
+            <span class="contract-address" id="copyMe">0xDEADBEEF...1234</span>
+            <div id="copyNotification" class="contract-notification">
+              Copied!
+            </div>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>TOKENOMICS</h2>
+      <div class="chart-container">
+        <canvas id="tokenomicsChart"></canvas>
+      </div>
+    </section>
+
+    <section>
+      <h2>🚀 Join the Cult</h2>
+      <p>
+        Whoops isn’t just a token. It’s a beautiful accident. A tribute to every
+        trader, dev, or degen who’s ever hit the wrong button… and still won.
+      </p>
+      <p>
+        <strong>Buy $WHOOPS. Embrace the mistake. Wagmi by accident.</strong>
+      </p>
+    </section>
+
+    <section>
+      <div class="links">
+        <a href="#">Buy on Apestore</a>
+        <a href="#">View on Basescan</a>
+        <a href="#">Telegram</a>
+        <a href="#">X</a>
+        <a href="#">Oopsie NFT Mint (Soon)</a>
+        <a href="#">Leaderboard</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        &copy; 2025 WHOOPS Token. All rights reserved. Built on Base. No
+        regrets.
+      </p>
+    </footer>
+
+    <script>
+      (function initWhoops() {
+        var copyBtn = document.getElementById("copyMe");
+        var notify = document.getElementById("copyNotification");
+        if (copyBtn && !copyBtn.dataset.bound) {
+          copyBtn.addEventListener("click", function () {
+            try {
+              var txt = this.textContent.trim();
+              if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard
+                  .writeText(txt)
+                  .then(showCopied)
+                  .catch(fallbackCopy);
+              } else {
+                fallbackCopy();
+              }
+              function fallbackCopy() {
+                var tempInput = document.createElement("input");
+                tempInput.value = txt;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                showCopied();
+              }
+              function showCopied() {
+                if (!notify) return;
+                notify.style.display = "inline-block";
+                setTimeout(function () {
+                  notify.style.display = "none";
+                }, 1500);
+              }
+            } catch (e) {
+              console.warn("Copy failed:", e);
+            }
+          });
+          copyBtn.dataset.bound = "1";
+        }
+
+        var canvas = document.getElementById("tokenomicsChart");
+        if (canvas && !canvas.dataset.init) {
+          var ctxLocal = canvas.getContext("2d");
+          var chart = new Chart(ctxLocal, {
+            type: "pie",
+            data: {
+              labels: [
+                "Community",
+                "Team",
+                "Liquidity Pool",
+                "Marketing",
+                "Airdrop",
+              ],
+              datasets: [
+                {
+                  label: "Token Distribution",
+                  data: [60, 10, 20, 5, 5],
+                  backgroundColor: [
+                    "#00ffcc",
+                    "#ffcc00",
+                    "#ff6666",
+                    "#3399ff",
+                    "#cc66ff",
+                  ],
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: true,
+              plugins: { legend: { labels: { color: "#fff" } } },
+            },
+          });
+          canvas.dataset.init = "1";
+          window.WHOOPS_TOKENOMICS_CHART = chart;
+        }
+
+        window.__runWhoopsTests = function () {
+          var results = [];
+          results.push({
+            name: "Copy button bound",
+            pass: !!(
+              document.getElementById("copyMe") &&
+              document.getElementById("copyMe").dataset.bound
+            ),
+          });
+          results.push({
+            name: "Chart initialized once",
+            pass: !!(
+              document.getElementById("tokenomicsChart") &&
+              document.getElementById("tokenomicsChart").dataset.init === "1"
+            ),
+          });
+          results.push({
+            name: "Chart instance available",
+            pass: !!window.WHOOPS_TOKENOMICS_CHART,
+          });
+          console.group("WHOOPS Diagnostics");
+          results.forEach(function (r) {
+            console[r.pass ? "log" : "error"](
+              (r.pass ? "✅" : "❌") + " " + r.name
+            );
+          });
+          console.groupEnd();
+          return results;
+        };
+      })();
+    </script>
+  </body>
+</html>
